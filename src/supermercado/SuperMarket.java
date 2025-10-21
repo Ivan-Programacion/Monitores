@@ -34,7 +34,8 @@ public class SuperMarket {
 			System.err.println("ERROR: desde SuperMarket");
 //				e.printStackTrace();
 		}
-		System.out.println("Fin programa");
+		System.out.println("Supermercado cerrado");
+		System.out.println("Ganancias totales: " + Caja.resultado + "€");
 		// REALIZAR OPERACIONES
 	}
 

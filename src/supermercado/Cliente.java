@@ -22,7 +22,7 @@ public class Cliente extends Thread {
 				if (caja.isDisponible()) {
 					caja.atender(cliente);
 					Thread.sleep(tiempoRandom());
-					caja.terminar(cliente);
+					caja.terminar(cliente, pagar());
 					i = LISTA_CAJAS.size() - 1;
 				} else if (i == LISTA_CAJAS.size() - 1) {
 					caja.esperar(cliente);
@@ -38,5 +38,10 @@ public class Cliente extends Thread {
 	private int tiempoRandom() {
 		Random numRandom = new Random();
 		return numRandom.nextInt(2000) + 1;
+	}
+	
+	private int pagar() {
+		Random numRandom = new Random();
+		return numRandom.nextInt(250) + 1;
 	}
 }
