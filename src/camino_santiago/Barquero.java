@@ -13,15 +13,17 @@ public class Barquero extends Thread {
 	public void run() {
 		try {
 			while (numTotalPeregrinos > 0) {
-				barca.esperaBarquero(numTotalPeregrinos);
-				if (!barca.isDisponible()) {
+				if (barca.isDisponible())
+					barca.esperaBarquero(numTotalPeregrinos);
+				else {
 					viajeIda();
 					numTotalPeregrinos--;
+					System.err.println("Peregrinos restantes: " + numTotalPeregrinos);
 					viajeVuelta();
 					barca.esperaBarquero(numTotalPeregrinos);
 				}
-				System.out.println("Barquero TERMINANDO JORNADA");
 			}
+			System.out.println("Barquero TERMINANDO JORNADA");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			System.exit(-1);

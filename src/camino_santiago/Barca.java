@@ -24,9 +24,10 @@ public class Barca {
 		wait();
 	}
 
-	public void esperaBarquero(int numTotalPeregrinos) throws InterruptedException {
+	public synchronized void esperaBarquero(int numTotalPeregrinos) throws InterruptedException {
 		if (numTotalPeregrinos > 0) {
 			System.out.println("Barquero ESPERANDO...");
+			notifyAll();
 			wait();
 		}
 	}
