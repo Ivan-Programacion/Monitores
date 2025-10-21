@@ -26,6 +26,7 @@ public class Camino {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		sc.close();
 		System.out.println("FIN PROGRAMA");
 	}
 }

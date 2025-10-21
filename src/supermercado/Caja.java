@@ -3,16 +3,12 @@ package supermercado;
 public class Caja {
 
 	static int numCajasTotales;
-	private static int resultado;
+	static int resultado;
 	private int numCaja;
-	private int cliente;
-	private int dinero;
 	private boolean disponible;
 
 	public Caja(int numCaja) {
 		this.numCaja = numCaja;
-		cliente = 0;
-		dinero = 0;
 		disponible = true;
 		resultado = 0;
 	}
@@ -22,8 +18,9 @@ public class Caja {
 		System.out.println("Cliente " + cliente + " siendo atendido en Caja " + numCaja);
 	}
 
-	public synchronized void terminar(int cliente) {
-		System.out.println("Cliente " + cliente + " ha terminado en Caja " + numCaja);
+	public synchronized void terminar(int cliente, int pago) {
+		System.out.println("Cliente " + cliente + " ha terminado en Caja " + numCaja + ". Ha pagado " + pago + "€");
+		resultado += pago;
 		disponible = true;
 		notifyAll();
 	}
